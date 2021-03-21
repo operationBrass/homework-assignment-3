@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 03 JavaScript: Password Generator
 
 ## Your Task
@@ -90,3 +91,6 @@ You are required to submit the following for review:
 
 - - -
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+=======
+# homework-assignment-3
+>>>>>>> 9bb5550b31656d892c28288edd9dd75b5bcfa230
