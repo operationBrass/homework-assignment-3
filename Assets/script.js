@@ -14,11 +14,12 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// Add event listener to 'generateBtn'
+generateBtn.addEventListener("click", userInput);
 
 
 function userInput()
 {
-
 var userChoice = []; 
 var passLen = prompt("Password length? (8-128)");
 var hasLower = confirm("Include Lowercase? (default)");
@@ -58,19 +59,14 @@ if (hasLower)
     }
 }
 
+
 // Write password to the #password input
 function writePassword(pass) {
-
 
     var passwordText = document.querySelector("#password");
     passwordText.value = pass;
 
 }
-
-
-
-// Add event listener to 'generateBtn'
-generateBtn.addEventListener("click", userInput());
 
 function passwordBluePrint(userChoice,passLen)
 {
