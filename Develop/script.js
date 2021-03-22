@@ -18,111 +18,147 @@ var generateBtn = document.querySelector("#generate");
 
 function userInput()
 {
-    var passLen = prompt("Password length? (8-128)");
-    var hasUpper = prompt("Uppercase? (Yes or No)");
-    var hasSpecial = prompt("Include special characters? (Yes or No)");
-    console.log(generateString())
-}
 
+var userChoice = []; 
+var passLen = prompt("Password length? (8-128)");
+var hasLower = confirm("Include Lowercase? (default)");
+
+if (hasLower)
+    {
+        userChoice.push(1);
+    }
+
+    var hasUpper = confirm("Uppercase?");
+    if (hasUpper)
+    {
+        userChoice.push(2);
+    }
+
+
+    var hasNumbers = confirm('Numbers?');
+    if (hasNumbers)
+    {
+        userChoice.push(3);
+    }
+
+
+    var hasSpecial = confirm("Special characters?");
+    if (hasSpecial)
+    {
+        userChoice.push(4);
+    }
+
+    if (userChoice.length < 1)
+    { 
+        alert("No password criteria selected.");
+    }
+    else
+    {
+        writePassword(passwordBluePrint(userChoice,passLen))
+    }
+}
 
 // Write password to the #password input
-function writePassword() {
+function writePassword(pass) {
 
-    var password = generatePassword();
+
     var passwordText = document.querySelector("#password");
-    passwordText.value = password;
+    passwordText.value = pass;
 
 }
+
+
 
 // Add event listener to 'generateBtn'
-generateBtn.addEventListener("click", userInput);
+generateBtn.addEventListener("click", userInput());
 
-
-function passwordBluePrint()
+function passwordBluePrint(userChoice,passLen)
 {
 
+// This always ensures the user criteria is included in every minimum length password, every time. 
+let max_limit;
 
-var test = ['1','2','3','4','1','2','3','4'];
-var returnArr = [];
-var genNum;
-var position = 1;
 
-do  
+if (passLen % 2 != 0)
+    {
+        max_limit = (passLen - 1) / userChoice.length;
+    }
+else
+    {
+         max_limit = passLen / userChoice.length;
+    }
+
+let returnArr = [];
+let countEntries = [0,0,0,0];
+let genNum = 0;
+
+switch (userChoice.length)
 {
+    case 1:
+        for(i=0; i< passLen; i++)
+        {
+        returnArr[i] = userChoice[0];
+        }
 
-genNum = Math.floor(Math.random()* 8)+1;
+        break;
 
-if (test[genNum-1] !== null )
-{
-console.log("if", genNum);
-returnArr.push(genNum);
-test[genNum-1] = null;
-}
+    case 2:  
+        do
+        {
+            genNum = Math.floor(Math.random()*2)+1;
+            if (countEntries[genNum] != max_limit) 
+            {
+            returnArr.push(charGen(genNum));
+            countEntries[genNum] = countEntries[genNum]+1;
+            }
+        }
+        while (returnArr.length < passLen);
 
-}
-while(returnArr.length < 8);
-return returnArr;
-}
+        break;
+        
+        case 3:  
+        do
+        {
+            genNum = Math.floor(Math.random()*3)+1;
+            if (countEntries[genNum] != max_limit) 
+            {
+                returnArr.push(charGen(genNum));
+            countEntries[genNum] = countEntries[genNum]+1;
+            }
+        }
+        while (returnArr.length < passLen);
+ 
+        break;
 
-console.log(passwordBluePrint());
-
-
-function generateString()
-{
+   case 4:  
+        do
+        {
+            genNum = Math.floor(Math.random()*4)+1;
+            if (countEntries[genNum] != max_limit) 
+            {
+           returnArr.push(charGen(genNum));
+            countEntries[genNum] = countEntries[genNum]+1;
+            }
     
-var random_string = '';
-var random_ascii;
-
-//lower case
-var ascii_low = 97; 
-var ascii_high = 122;
-
-//upper case
-var ascii_upper_low = 65;
-var ascii_upper_high = 90;
-
-//numbers
-var ascii_number_low = 49;
-var ascii_number_high = 57;
-
-//special_characters
-var ascii_special_low = 33;
-var ascii_special_high = 47;
-var allUsed = false;
-
-
-switch (math.floor((math.random()) * 4))
-{
-
+        }
+        while (returnArr.length < passLen);
+}
+ return returnArr.join("");
 }
 
-
-
-
-
-random_ascii = Math.floor((Math.random() * (ascii_high - ascii_low)) + ascii_low);
-random_string = String.fromCharCode(random_ascii)
-
-return random_string
-
-}
-
-function caseUpper()
+function charGen(charID)
 {
+var lowerChar = "abcdefghijklmnopqrstuvwxyz";
+var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numberChar = "0123456789";
+var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
 
-}
-
-function caseLower()
+switch (charID)
 {
-
+    case 1: return lowerChar.charAt(Math.floor(Math.random()*lowerChar.length));
+    case 2: return upperChar.charAt(Math.floor(Math.random()*upperChar.length));
+    case 3: return numberChar.charAt(Math.floor(Math.random()*numberChar.length));
+    case 4: return specialChar.charAt(Math.floor(Math.random()*specialChar.length));
 }
-
-function numberGen()
-{
-
-}
-
-function symGen()
-{
 
 }
