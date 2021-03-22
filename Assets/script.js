@@ -21,8 +21,16 @@ generateBtn.addEventListener("click", userInput);
 function userInput()
 {
 var userChoice = []; 
-var passLen = prompt("Password length? (8-128)");
-var hasLower = confirm("Include Lowercase? (default)");
+
+var passLen = parseInt(prompt("Password length? (8-128)"));
+if (isNaN(passLen) || passLen < 8 || passLen > 128) {
+alert("Invalid selection, between 8-128");
+}
+
+else
+{
+
+var hasLower = confirm("Include Lowercase?");
 
 if (hasLower)
     {
@@ -57,6 +65,7 @@ if (hasLower)
     {
         writePassword(passwordBluePrint(userChoice,passLen))
     }
+}
 }
 
 
@@ -93,7 +102,7 @@ switch (userChoice.length)
     case 1:
         for(i=0; i< passLen; i++)
         {
-        returnArr[i] = userChoice[0];
+        returnArr.push(charGen(userChoice[0]));
         }
 
         break;
@@ -101,10 +110,10 @@ switch (userChoice.length)
     case 2:  
         do
         {
-            genNum = Math.floor(Math.random()*2)+1;
+            genNum = Math.floor(Math.random()*2);
             if (countEntries[genNum] != max_limit) 
             {
-            returnArr.push(charGen(genNum));
+            returnArr.push(charGen(userChoice[genNum]));
             countEntries[genNum] = countEntries[genNum]+1;
             }
         }
@@ -118,7 +127,7 @@ switch (userChoice.length)
             genNum = Math.floor(Math.random()*3)+1;
             if (countEntries[genNum] != max_limit) 
             {
-                returnArr.push(charGen(genNum));
+                returnArr.push(charGen(userChoice[genNum]));
             countEntries[genNum] = countEntries[genNum]+1;
             }
         }
@@ -129,10 +138,10 @@ switch (userChoice.length)
    case 4:  
         do
         {
-            genNum = Math.floor(Math.random()*4)+1;
+            genNum = Math.floor(Math.random()*4);
             if (countEntries[genNum] != max_limit) 
             {
-           returnArr.push(charGen(genNum));
+                returnArr.push(charGen(userChoice[genNum]));
             countEntries[genNum] = countEntries[genNum]+1;
             }
     
