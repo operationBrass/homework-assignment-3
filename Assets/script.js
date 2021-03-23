@@ -65,7 +65,6 @@ if (hasLower)
     }
     else
     {
-        console.log("ending first step", userChoice)
         writePassword(passwordBluePrint(userChoice,passLen))
     }
 }
@@ -175,8 +174,6 @@ switch (charID)
 // copy to clipboard event listener 
 
 copyBtn.addEventListener('click', function(event) {
-
-    
     var copyTextarea = document.querySelector('#password');
     copyTextarea.focus();
     copyTextarea.select();
