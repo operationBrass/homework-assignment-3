@@ -127,7 +127,7 @@ switch (userChoice.length)
         case 3:  
         do
         {
-            genNum = Math.floor(Math.random()*3)+1;
+            genNum = Math.floor(Math.random()*3);
             if (countEntries[genNum] != max_limit) 
             {
                 returnArr.push(charGen(userChoice[genNum]));
