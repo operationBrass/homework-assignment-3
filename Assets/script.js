@@ -37,7 +37,7 @@ if (hasLower)
         userChoice.push(1);
     }
 
-    var hasUpper = confirm("Uppercase?");
+    var hasUpper = confirm("Uppercase?");   
     if (hasUpper)
     {
         userChoice.push(2);
@@ -80,7 +80,7 @@ function writePassword(pass) {
 function passwordBluePrint(userChoice,passLen)
 {
 
-// This always ensures the user criteria is included in every minimum length password, every time. 
+// This always ensures all the user criteria is included in every minimum length password
 let max_limit;
 
 
@@ -110,6 +110,7 @@ switch (userChoice.length)
     case 2:  
         do
         {
+            console.log(userChoice)
             genNum = Math.floor(Math.random()*2);
             if (countEntries[genNum] != max_limit) 
             {
