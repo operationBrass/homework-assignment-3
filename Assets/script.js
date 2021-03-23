@@ -14,8 +14,10 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#clipboard");
 // Add event listener to 'generateBtn'
 generateBtn.addEventListener("click", userInput);
+
 
 
 function userInput()
@@ -63,6 +65,7 @@ if (hasLower)
     }
     else
     {
+        console.log("ending first step", userChoice)
         writePassword(passwordBluePrint(userChoice,passLen))
     }
 }
@@ -110,7 +113,6 @@ switch (userChoice.length)
     case 2:  
         do
         {
-            console.log(userChoice)
             genNum = Math.floor(Math.random()*2);
             if (countEntries[genNum] != max_limit) 
             {
@@ -168,3 +170,17 @@ switch (charID)
 }
 
 }
+
+
+// copy to clipboard event listener 
+
+copyBtn.addEventListener('click', function(event) {
+
+    
+    var copyTextarea = document.querySelector('#password');
+    copyTextarea.focus();
+    copyTextarea.select();
+    document.execCommand('copy');
+  });
+
+
