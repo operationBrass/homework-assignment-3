@@ -13,6 +13,11 @@ body,
   background-color: rgba(39, 189, 52, 0.157)
 }
 
+h1,h2{
+  text-align: center;
+  color: rgba(4, 41, 143, 0.596);
+}
+
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -40,7 +45,7 @@ header {
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
-  padding: 30px 40px;
+  padding: 15px 20px;
 }
 
 .card-header::after {
@@ -115,7 +120,7 @@ button[disabled] {
   margin-bottom: 10px;
   border: 2px dashed #c0c7cf;
   border-radius: 6px;
-  resize:both;
+  resize:vertical; /* user can now resize the box if needed to see the whole password. */
   overflow: hidden;
 }
 
@@ -134,5 +139,11 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+
+  #password
+  {
+    font-size: 0.8em;
+    min-height: 100px;
   }
 }
