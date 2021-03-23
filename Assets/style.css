@@ -13,7 +13,7 @@ body,
   background-color: rgba(39, 189, 52, 0.157)
 }
 
-h1,h2{
+h2{
   text-align: center;
   color: rgba(4, 41, 143, 0.596);
 }
@@ -114,7 +114,7 @@ button[disabled] {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 85px;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -122,6 +122,8 @@ button[disabled] {
   border-radius: 6px;
   resize:vertical; /* user can now resize the box if needed to see the whole password. */
   overflow: hidden;
+  color:rgba(4, 41, 143, 1);
+  background-color: rgba(39, 189, 52, 0.157);
 }
 
 @media (max-width: 690px) {
@@ -143,7 +145,7 @@ button[disabled] {
 
   #password
   {
-    font-size: 0.8em;
+    font-size: 1.5em;
     min-height: 100px;
   }
 }
