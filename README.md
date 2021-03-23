@@ -4,4 +4,4 @@ A random password generator giving the user 4 criteria to choose from. Some inte
 
 Vist the [Password Generator](https://operationbrass.github.io/homework-assignment3/ "Password Generator")
 
-![Final_Product](/Assets/images/finalscreen/passwordGen.jpg)
+![Final_Product](/Assets/images/finalscreen/passwordGen.JPG)
