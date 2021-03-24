@@ -1,16 +1,3 @@
-// generate (button) ID assinged to varible
-
-// function writePassword() (not immediately run)
-// assign output of function generatePassword() to varible password;
-// assign element with ID password to passwordText varible
-// set the value of passwordText to the password varible. 
-
-// Add event listener to generate button
-
-// user is prompt for questions 
-//store user answers / validate user answers
-//prompt disapear. 
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -19,11 +6,11 @@ var copyBtn = document.querySelector("#clipboard");
 generateBtn.addEventListener("click", userInput);
 
 
-
+// prompt user for choices, count choices, process password or return to user if criteria not satisfied.
 function userInput()
 {
 var userChoice = []; 
-
+// check for out of range number or invalid chararacters
 var passLen = parseInt(prompt("Password length? (8-128)"));
 if (isNaN(passLen) || passLen < 8 || passLen > 128) {
 alert("Invalid selection, between 8-128");
@@ -59,13 +46,14 @@ if (hasLower)
         userChoice.push(4);
     }
 
+    //if no choices selected alert user and end.
     if (userChoice.length < 1)
     { 
         alert("No password criteria selected.");
     }
-    else
+    else // we pas the user choice array and required password length to writepassword()
     {
-        writePassword(passwordBluePrint(userChoice,passLen))
+        writePassword(passwordBluePrint(userChoice,passLen)) //pass the returned array from passwordblue print to the writepassword function.
     }
 }
 }
@@ -86,7 +74,7 @@ function passwordBluePrint(userChoice,passLen)
 let max_limit;
 
 
-if (passLen % 2 != 0)
+if (passLen % 2 != 0) //checking if password length is odd number
     {
         max_limit = (passLen + 1) / userChoice.length;
     }
@@ -99,7 +87,7 @@ let returnArr = [];
 let countEntries = [0,0,0,0];
 let genNum = 0;
 
-switch (userChoice.length)
+switch (userChoice.length) // process the password creation depending on number of choices
 {
     case 1:
         for(i=0; i< passLen; i++)
@@ -109,7 +97,7 @@ switch (userChoice.length)
 
         break;
 
-    case 2:  
+    case 2:  //select a random number = to number of choices this will then process that character type.
         do
         {
             genNum = Math.floor(Math.random()*2);
@@ -123,7 +111,7 @@ switch (userChoice.length)
 
         break;
         
-        case 3:  
+        case 3:  //select a random number = to number of choices this will then process that character type.
         do
         {
             genNum = Math.floor(Math.random()*3);
@@ -137,7 +125,7 @@ switch (userChoice.length)
  
         break;
 
-   case 4:  
+   case 4:  //select a random number = to number of choices this will then process that character type.
         do
         {
             genNum = Math.floor(Math.random()*4);
@@ -153,6 +141,7 @@ switch (userChoice.length)
  return returnArr.join("");
 }
 
+//randomly choose a character from the charID given. 
 function charGen(charID)
 {
 var lowerChar = "abcdefghijklmnopqrstuvwxyz";
