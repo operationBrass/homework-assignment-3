@@ -88,7 +88,7 @@ let max_limit;
 
 if (passLen % 2 != 0)
     {
-        max_limit = (passLen - 1) / userChoice.length;
+        max_limit = (passLen + 1) / userChoice.length;
     }
 else
     {
