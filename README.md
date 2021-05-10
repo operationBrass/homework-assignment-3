@@ -5,3 +5,7 @@ A random password generator giving the user 4 criteria to choose from. Some inte
 Vist the [Password Generator](https://operationbrass.github.io/homework-assignment-3/ "Password Generator")
 
 ![Final_Product](/Assets/images/finalscreen/passwordGen.JPG)
+
+[License Agreement](https://github.com/operationBrass/homework-assignment-3/blob/main/LICENSE "MIT License")
+
+
